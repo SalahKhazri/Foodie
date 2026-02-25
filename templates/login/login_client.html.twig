@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LoginController!{% endblock %}
+
+{% block body %}
+<style>
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #f9f6ee, #e3dac9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+
+    .login {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 320px;
+    }
+
+
+    .login h1 {
+        margin-bottom: 1.5rem;
+        font-size: 24px;
+        color: #5a4a42;
+    }
+
+
+    .login input {
+        width: 90%;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #c2b8a3;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+
+    .login input:focus {
+        border-color: #8c5a42;
+        outline: none;
+        box-shadow: 0 0 5px rgba(140, 90, 66, 0.5);
+    }
+
+
+    .login button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        background: #b05e3d;
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+
+    .login button:hover {
+        background: #8c5a42;
+    }
+
+
+</style>
+
+    <div class="login">
+        <h1>Login page</h1>
+
+        <form action="{{ path('login_admin') }}" method="POST">
+            <input type="email" name="email" required placeholder="Email">
+            <input type="password" name="password" required placeholder="Mot de passe">
+            <button type="submit">Se connecter</button>
+
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddTableController!{% endblock %}
+
+{% block body %}
+    <h1>Modifier la table</h1>
+    <form action="{{ path('update_table', {id: table.id}) }}" method="POST" enctype="multipart/form-data">
+        <input type="text" name="nom" value="{{ table.nom }}">
+        <input type="number" name="nbr" value="{{ table.nbrPlace }}">
+        <select name="statut">
+
+            <option name="plain">Plain</option>
+            <option name="reserver">Réservée</option>
+            <option name="vide">Vide</option>
+        </select>
+        <button type="submit">Modifier</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,338 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <style>
+        /* Styles généraux */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f6ee;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #f9f6ee;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 0px 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+
+        /* Boutons */
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: #b05e3d;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #8c5a42;
+            color: white;
+        }
+
+        /* Menu toggle */
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+
+        /* Liens de navigation */
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links .active {
+            background-color: #b05e3d;
+            color: white;
+        }
+        .bienvenue{
+            display: flex;
+            width: 100%;
+            height: 600px;
+            background-image: url("{{ asset('image/bienvenue.png') }}");
+            background-size: cover;  /* L'image couvrira toute la section */
+            background-position: center; /* Centrer l'image */
+            background-repeat: no-repeat; /* Éviter la répétition */
+        }
+        .bientext{
+            float: 1;
+            width: 1000px;
+            margin-top: 150px;
+            margin-left: 150px;
+
+        }
+        .bientext h1{
+            font-size: 60px;
+            width: 700px;
+            color: #494646;
+        }
+        .bientext p{
+            width: 700px;
+            font-size: 22px;
+        }
+        .bienimg{
+            float: 2;
+            width: 600px;
+            margin-top: 100px;
+            /*margin-left: 150px;*/
+        }
+        .bienimg img{
+            width: 600px;
+            height: 400px;
+        }
+        .nosPlat{
+            display: flex;
+            width: 1200px;
+            background-color: #FFFFFF;
+            justify-self: center;
+            margin-bottom: 50px;
+            border-radius: 24px;
+            box-shadow: bisque 12px;
+        }
+        .descPlat{
+
+            width: 800px;
+            margin-top: 50px;
+
+        }
+        .floatPosition1{
+            float: 1;
+            margin-left: 50px;
+        }
+        .floatPosition2{
+            float: 2;
+        }
+        .descPlat h1{
+            font-size: 50px;
+            color: #333;
+        }
+        .descPlat p{
+            font-size: 18px;
+
+            font-family: sans-serif;
+            text-space: 2px;
+            width: 550px;
+        }
+        .descPlat button{
+            width: 250px;
+            height: 50px;
+            background-color: #b05e3d;
+            border: none;
+            border-radius: 24px;
+            color: white;
+            font-size: 16px;
+
+        }
+        .btn3{
+            width: 250px;
+            height: 50px;
+            background-color: #b05e3d;
+            border: none;
+            border-radius: 24px;
+            color: white;
+            font-size: 16px;
+        }
+        .btn1{
+            width: 250px;
+            height: 50px;
+            background-color: black;
+            border: none;
+            border-radius: 24px;
+            color: white;
+            font-size: 16px;
+        }
+        .btn1 a{
+            text-decoration: none;
+            color: white;
+        }
+        .descPlat a{
+            text-decoration: none;
+            color: white;
+        }
+        .imgPlat{
+
+            width: 600px;
+            margin-top: 100px;
+        }
+        .imgPlat img{
+            width: 400px;
+            height: 300px;
+
+        }
+        /*.img_foodie{*/
+        /*    width: 100px;*/
+        /*    height: 150px;*/
+        /*}*/
+
+    </style>
+
+
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://flowbite.com/" class="logo">
+                <img src="{{ asset('image/1.png') }}" alt="Flowbite Logo">
+                <span>Foodie</span>
+            </a>
+            <div class="nav-links" id="navbar-sticky">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-buttons">
+                <a href="{{ path('app_login') }}"><button type="button" class="btn"> Se Connecter</button></a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="bienvenue">
+        <div class="bientext">
+            <h1> Bienvenue à Foodie</h1>
+            <p>Plongez dans une expérience culinaire unique où saveurs authentiques et ambiance chaleureuse se rencontrent. Que ce soit pour un repas en famille, un dîner romantique ou un moment entre amis, notre cuisine raffinée et nos plats faits maison sauront éveiller vos papilles.
+
+                Laissez-vous séduire par nos spécialités et savourez chaque instant dans un cadre élégant et convivial. Bienvenue et bon appétit ! </p>
+
+        </div>
+        <div class="bienimg">
+            <img src="{{ asset('image/pattes.png') }}">
+        </div>
+    </div>
+
+    <h1 style="text-align: center; margin-top: 50px; font-size: 50px;">Nos type des plats</h1>
+
+    <div class="nosPlat">
+        <div class="descPlat floatPosition1">
+            <h1>Nos Plat d'entré</h1>
+            <p>
+                Commencez votre repas avec une entrée savoureuse et délicatement préparée. De nos soupes réconfortantes à nos salades croquantes, en passant par des assortiments de mezzés et des amuse-bouches gourmands, nos entrées sont pensées pour éveiller vos papilles et ouvrir l’appétit.
+            </p>
+            <button><a href="#">En savoir plus</a></button>
+        </div>
+        <div class="imgPlat floatPosition2">
+            <img src="{{ asset('image/plat2.png') }}">
+        </div>
+    </div>
+
+    <div class="nosPlat">
+        <div class="imgPlat floatPosition1">
+            <img src="{{ asset('image/plat2.png') }}">
+        </div>
+        <div class="descPlat floatPosition2">
+            <h1>Nos Plat Principale</h1>
+            <p>
+                Découvrez nos plats principaux, soigneusement préparés avec des ingrédients frais et des saveurs authentiques. Que vous soyez amateur de viandes grillées, de poissons savoureux ou de plats végétariens raffinés, notre menu propose une sélection variée qui ravira tous les palais. Chaque assiette est conçue pour offrir un équilibre parfait entre goût, texture et présentation.
+            </p>
+            <button><a href="{{ asset('www.google.com') }}">En savoir plus</a></button>
+        </div>
+
+    </div>
+
+    <div class="nosPlat">
+        <div class="descPlat floatPosition1">
+            <h1>Nos Desserts</h1>
+            <p>
+                Terminez votre repas sur une note sucrée avec nos desserts faits maison. Entre pâtisseries gourmandes, crèmes onctueuses et fruits frais sublimés, chaque dessert est une invitation au plaisir. Laissez-vous tenter par nos spécialités et savourez un moment de douceur inoubliable.
+            </p>
+            <button><a href="{{ asset('www.google.com') }}">En savoir plus</a></button>
+        </div>
+        <div class="imgPlat floatPosition2">
+            <img src="{{ asset('image/plat2.png') }}">
+        </div>
+    </div>
+
+    <div class="nosPlat">
+        <div class="imgPlat floatPosition1">
+            <img src="{{ asset('image/plat2.png') }}">
+        </div>
+        <div class="descPlat floatPosition2">
+            <h1>Nos Plat du Jour</h1>
+            <p>
+                Chaque jour, notre chef vous propose un plat unique, inspiré des produits de saison et des saveurs du moment. Toujours frais et généreux, le plat du jour est l'occasion de découvrir de nouvelles créations culinaires et de se laisser surprendre par des associations gourmandes et équilibrées.
+            </p>
+            <button><a href="{{ asset('www.google.com') }}">En savoir plus</a></button>
+        </div>
+
+    </div>
+
+    <div class="contact" style="background-color: black; text-align: center; width: 100%;">
+        <p style="font-size: 50px; color: white; font-weight: bold; font-family: Arial; padding-top: 150px;">Voici mon contacte, contacter nous avec ce lien </p>
+
+        <button class="btn3" style="margin-bottom: 150px;"><a href="www.google.com"></a>Contacter nous</button>
+
+    </div>
+
+    <div class="contact" style="background-color: #99e54d; text-align: center; width: 100%;">
+        <p style="font-size: 50px; color: black; font-weight: bold; font-family: Arial; padding-top: 100px;">Cliquer ici pour effectuer votre réservation </p>
+
+        <button class="btn1" style="margin-bottom: 100px;"><a href="www.google.com"></a>Réserver maintenant</button>
+
+    </div>
+
+
+
+
+{% endblock %}

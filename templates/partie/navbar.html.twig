@@ -1,0 +1,128 @@
+<style>
+    /* Styles généraux */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f6ee;
+    }
+
+    /* Navbar */
+    .navbar {
+        background-color: #f9f6ee;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Logo */
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+    }
+
+    .logo img {
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    /* Boutons */
+    .nav-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn {
+        background-color: #b05e3d;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        margin-right: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn:hover {
+        background-color: #8c5a42;
+        color: white;
+    }
+
+    /* Menu toggle */
+    .menu-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+    }
+
+    .menu-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+    }
+
+    /* Liens de navigation */
+    .nav-links ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links .active {
+        background-color: #b05e3d;
+        color: white;
+    }
+
+
+
+</style>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="https://flowbite.com/" class="logo">
+            <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo">
+            <span>Foodie</span>
+        </a>
+        <div class="nav-links" id="navbar-sticky">
+            <ul>
+                <li><a href="#" class="active">dashboard</a></li>
+                <li><a href="{{ path('app_user_interface') }}">users</a></li>
+                <li><a href="{{ path('app_menu_list') }}">Menu</a></li>
+                <li><a href="#">client</a></li>
+                <li><a href="{{ path('app_table_interface') }}">table</a></li>
+                <li><a href="{{ path('app_offre_list') }}">offre</a></li>
+            </ul>
+        </div>
+        <div class="nav-buttons">
+            <a href="{{ path('app_login') }}"><button type="button" class="btn"> Se Connecter</button></a>
+
+        </div>
+
+    </div>
+</nav>

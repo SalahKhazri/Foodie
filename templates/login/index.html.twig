@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LoginController!{% endblock %}
+
+{% block body %}
+    <style>
+
+        body{
+            background: linear-gradient(135deg, #f9f6ee, #e3dac9);
+            height: 74vh;
+            margin: 0;
+
+        }
+        .login{
+            width: 900px;
+            height: auto;
+            margin-top: 200px;
+            justify-self: center;
+            display: flex;
+            background: none;
+
+
+        }
+        .login1{
+            float: 1;
+            width: 250px;
+            background-color: #FFFFFF;
+            margin-right: 25px;
+            border-radius: 24px;
+            padding: 25px 15px 25px 35px;
+        }
+
+        .login1 button, .login2 button, .login3 button{
+            width: 150px;
+            height: 35px;
+            margin-left: 30px;
+            margin-top: 20px;
+            background-color: #b05e3d;
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login1 button:hover, .login2 button:hover, .login3 button:hover{
+            background-color: #8c5a42;
+        }
+        .login2{
+            float: 2;
+            width: 250px;
+            background-color: #FFFFFF;
+            margin-right: 25px;
+            border-radius: 24px;
+            padding: 25px 15px 25px 35px;
+        }
+
+        .login3{
+            float: 3;
+            width: 250px;
+            background-color: #FFFFFF;
+            margin-right: 25px;
+            border-radius: 24px;
+            padding: 25px 15px 25px 35px;
+        }
+
+
+    </style>
+
+    
+    <div class="login">
+        <div class="login1">
+            <h2>Si vous possédez déjà un compte, cliquez ici.</h2>
+            <a href="{{ path('app_login_client') }}"><button type="button">Se Connecter</button></a>
+        </div>
+        <div class="login2">
+            <h2>Créez un compte et profitez de réductions exclusives !</h2>
+            <a href="{{ path('app_add_compte') }}"><button type="button">Se Connecter</button></a>
+        </div>
+        <div class="login3">
+            <h2>Connectez-vous en tant qu'administrateur.</h2>
+            <a href="{{ path('app_login_admin') }}"><button type="button">Se Connecter</button></a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TableInterfaceController!{% endblock %}
+
+{% block body %}
+<style>
+    .table {
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: #FFFFFF;
+    }
+
+    /* Changer la couleur des lignes au survol */
+    .table-hover tbody tr:hover {
+        background-color: #eee;
+        transition: 0.3s;
+    }
+
+    /* Espacer les colonnes */
+    th, td {
+        padding: 12px;
+        vertical-align: middle;
+    }
+    .btn {
+        background-color: #13ba13;
+        color: black;
+        border: none;
+        padding: 8px 15px;
+        margin-right: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .btn:hover {
+        background-color: #13ba13;
+        color: black;
+    }
+
+
+    /* Personnaliser le bouton "Ajouter un user" */
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    /* Personnaliser les boutons Modifier et Supprimer */
+    .btn-warning {
+        color: #fff;
+        background-color: #ffc107;
+        border: none;
+    }
+
+    .btn-danger {
+        color: #fff;
+        background-color: #dc3545;
+        border: none;
+    }
+</style>
+
+    {% include 'partie/navbar.html.twig' %}
+    <table class="table table-hover table-striped table-bordered text-center">
+        <thead class="table-dark">
+        <tr>
+            <th scope="col">Nom de table</th>
+            <th scope="col">Nombre de place</th>
+            <th scope="col">Statut</th>
+            <th scope="col">Date de réservation</th>
+
+            <th colspan="2">
+                <a href="{{ path('app_table_add') }}" class="btn btn-primary">Ajouter une table</a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for elem in table %}
+            <tr>
+                <td>{{ elem.nom }}</td>
+                <td>{{ elem.nbrPlace }}</td>
+                <td>{{ elem.statut }}</td>
+                <td>{{ elem.dateReservation }}</td>
+                <td>
+                    <a href="{{ path('modifier_table', {id: elem.id}) }}" class="btn btn-warning btn-sm">Modifier</a>
+                </td>
+                <td>
+                    <a href="{{ path('delete_table', {id: elem.id}) }}" class="btn btn-danger btn-sm">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

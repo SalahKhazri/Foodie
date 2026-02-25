@@ -1,0 +1,13 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+add_client:
+    path: /add_client
+    controller: App\Controller\AddCompteController::add_client
+
+#login_process:
+#    path: /add_compte
+#    controller: App\Controller\LoginController::login

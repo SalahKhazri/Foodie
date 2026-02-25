@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddCompteController!{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f9f6ee, #e3dac9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+
+        .login {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px;
+        }
+
+
+        .login h1 {
+            margin-bottom: 1.5rem;
+            font-size: 24px;
+            color: #5a4a42;
+        }
+
+
+        .login input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #c2b8a3;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .login select {
+            width: 98%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #c2b8a3;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+
+        .login input:focus {
+            border-color: #8c5a42;
+            outline: none;
+            box-shadow: 0 0 5px rgba(140, 90, 66, 0.5);
+        }
+
+
+        .login button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background: #b05e3d;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+
+        .login button:hover {
+            background: #8c5a42;
+        }
+
+
+    </style>
+    <div class="login">
+    <h1>Ajouter un plat dans le menu</h1>
+    <form action="{{ path('add_menu') }}" method="POST" enctype="multipart/form-data">
+        <input type="text" name="nom" required placeholder="Nom de plat">
+        <input type="text" name="description" required placeholder="Description">
+        <input type="number" name="prix" required placeholder="Prix">
+        <input type="text" name="type_plat" required placeholder="Type de plat">
+
+{#        <select name="type_plat">#}
+{#            <option name="principale">Plat Principal</option>#}
+{#            <option name="entre">Plat d'entrée</option>#}
+{#            <option name="jour">Plat du jour</option>#}
+{#            <option name="dessert">Dessert</option>#}
+{#            <option name="boissant">Boissant</option>#}
+{#        </select>#}
+        <select name="statut">
+            <option name="plat_principale">Plat Principale</option>
+            <option name="plat_entre">Plat D'entrée</option>
+            <option name="plat_jour">Plat Du jour</option>
+            <option name="dessert">Dessert</option>
+            <option name="boisson">Boisson</option>
+        </select>
+
+        <input type="file" name="image" required placeholder="Entrer image">
+
+        <button type="submit">Ajouter</button>
+
+    </form>
+    </div>
+{% endblock %}
